@@ -12,7 +12,7 @@ class CJsonEncoder(json.JSONEncoder):
             return obj.strftime('%Y-%m-%d')
         return json.JSONEncoder.default(self, obj)
 
-class GoodslistView(View):
+class GoodsListView(View):
     def get(self, request):
         """
         通过django的view实现商品列表页
