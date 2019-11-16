@@ -16,7 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 import xadmin
+from VproShop.settings import MEDIA_ROOT
+from django.views.static import serve
+
+from goods.views_base import GoodslistView
 
 urlpatterns = [
     url('^xadmin/', xadmin.site.urls),
+    url('^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
+
+    #商品列表页
+    url('goods/$', GoodslistView.as_view(), name="goods-list")
 ]
