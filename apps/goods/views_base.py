@@ -27,11 +27,15 @@ class GoodsListView(View):
         #     json_dict['category'] = good.category.name
         #     json_dict['market_price'] = good.market_price
         #     json_list.append(json_dict)
+        #
+        # from django.forms.models import model_to_dict
+        # for good in goods:
+        #     json_dict = model_to_dict(good)
+        #     json_list.append(json_dict)
 
-        from django.forms.models import model_to_dict
-        for good in goods:
-            json_dict = model_to_dict(good)
-            json_list.append(json_dict)
+        from django.core import serializers
+        json_date = serializers.serialize("json", goods)
+        json_date = json.loads(json_date)
 
-        from django.http import HttpResponse
-        return HttpResponse(json.dumps(json_list, cls=CJsonEncoder), content_type='application/json')
+        from django.http import HttpResponse, JsonResponse
+        return JsonResponse(json_date, safe=False)

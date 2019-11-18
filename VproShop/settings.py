@@ -47,8 +47,14 @@ INSTALLED_APPS = (
     'trade.apps.TradeConfig',
     'user_operation.apps.UserOperationConfig',
     'crispy_forms',
-    'xadmin'
+    'xadmin',
+    'rest_framework',
 )
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": []
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

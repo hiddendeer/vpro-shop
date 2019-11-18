@@ -69,7 +69,7 @@ class Goods(models.Model):
     goods_desc = UEditorField(verbose_name=u"内容", imagePath="goods/images/", width=1000, height=300,
                               filePath="goods/files/", default='')
     ship_free = models.BooleanField(default=True, verbose_name="是否承担运费")
-    goods_front_image = str(models.ImageField(upload_to="goods/images/", null=True, blank=True, verbose_name="封面图"))
+    goods_front_image = models.ImageField(upload_to="goods/images/", null=True, blank=True, verbose_name="封面图")
     is_new = models.BooleanField(default=False, verbose_name="是否新品")
     is_hot = models.BooleanField(default=False, verbose_name="是否热销")
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")

@@ -22,7 +22,7 @@ class UserProfile(AbstractUser):
         verbose_name_plural = "用户"
 
     def __str__(self):
-        return self.name
+        return self.username
 
 
 
