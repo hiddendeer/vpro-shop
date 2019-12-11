@@ -28,7 +28,5 @@ class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
 
 class CategoryViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
-    queryset = GoodsCategory.objects.all().order_by('add_time')
+    queryset = GoodsCategory.objects.filter(category_type=1)
     serializer_class = CategorySerializer
-    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
-    ordering_fields = ['id']

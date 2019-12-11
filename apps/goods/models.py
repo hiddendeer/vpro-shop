@@ -20,9 +20,8 @@ class GoodsCategory(models.Model):
     desc = models.TextField(default="", verbose_name="类别描述", help_text="类别描述")
     category_type = models.IntegerField(choices=CATEGORY_TYPE, verbose_name="类目级别", help_text="类目级别")
     parent_category = models.ForeignKey("self", null=True, blank=True, verbose_name="父类目级别", help_text="父目录",
-                                        related_name="sub_cat", on_delete=models.CASCADE)
+                                        related_name="sub_cat")
     is_tab = models.BooleanField(default=False, verbose_name="是否导航", help_text="是否导航")
-
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     class Meta:
@@ -31,7 +30,6 @@ class GoodsCategory(models.Model):
 
     def __str__(self):
         return self.name
-
 
 class GoodsCategoryBrand(models.Model):
     """
